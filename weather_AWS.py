@@ -1,3 +1,4 @@
+import sys
 import requests
 import pandas as pd
 import boto3
@@ -8,11 +9,11 @@ def call_api():
     try:     
         response = requests.get(API_CALL)
         weather_data = response.json()
+        print(f"API call was successful")
+        return weather_data
     except Exception as e:
-        print(e)
-
-    print(f"API call was successful")
-    return weather_data
+        print(f"API call failed\n{e}")
+        sys.exit(1)
 
 
 def create_df(weather_data):
@@ -58,11 +59,11 @@ def get_s3_client():
                         aws_access_key_id=AWS_ACCESS_KEY,
                         aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
                         region_name=AWS_REGION_NAME)
+        print(f"Connected to S3")
+        return s3
     except Exception as e:
-        print(e)
-
-    print(f"Connected to S3")
-    return s3
+        print(f"Cannot connect to S3\n{e}")
+        sys.exit(1)
 
 
 def download_from_s3(s3_client, bucket, object_path):
