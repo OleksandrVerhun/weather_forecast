@@ -48,7 +48,9 @@ This project is designed to retrieve weather data from an open API, process the 
 
 1. Make sure you have your AWS credentials set up.
 2. Use AWS Lambda or EC2 to deploy your application.
-3. Configure environments (e.g., environment variables) in AWS as needed.
+3. To test you can run the main script:
+      ```bash
+      python weather_aws.py
 
 ### PostgreSQL
 
