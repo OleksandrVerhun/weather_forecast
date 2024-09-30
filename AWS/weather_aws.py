@@ -16,6 +16,7 @@ def call_api():
         sys.exit(1)
 
 
+
 def create_df(weather_data):
     columns = ['continent', 'country', 'town', 'time', 'condition', 'temperature_c', 'precipitation_mm', 'cloud_percentage', 'humidity', 'wind_kph', 'pressure_mb']
     df = pd.DataFrame(columns=columns)
@@ -81,9 +82,10 @@ def download_from_s3(s3_client, bucket, object_path):
 def upload_to_s3(s3_client, bucket, object_path):
     try:
         s3_client.upload_file(OBJECT_NAME, bucket, object_path)
-        print(f"File {OBJECT_NAME} uploaded successfully to {bucket}/{object_path}.")
+        print(f"File {OBJECT_NAME} uploaded successfully to {bucket}/{object_path}")
     except Exception as e:
-        print(e)
+        print(f"Cannot upload file {OBJECT_NAME} to {bucket}/{object_path}\n{e}")
+        sys.exit(1)
 
 
 def append_data_to_s3(s3_client, bucket, new_data, object_path):    
