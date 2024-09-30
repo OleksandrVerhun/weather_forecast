@@ -1,5 +1,7 @@
 # Weather Data Project
 
+![test](https://cdn.leonardo.ai/users/b87de89e-86aa-4d10-8a2d-5f38a33fbc5d/generations/abcbc0f9-0c8a-4a6e-8baa-b0d56de2e105/Leonardo_Vision_XL_Create_an_illustration_with_a_central_cloud_3.jpg)
+
 This project is designed to retrieve weather data from an open API, process the data and store it in an AWS S3 bucket or Database, depending on what you need. It uses libraries such as `requests` for API calls, `pandas` for data manipulation, `boto3` for interacting with AWS services and `psycopg2` for working with Database.
 
 ## Contents
